@@ -39,7 +39,7 @@ export class ClienteComponent implements OnInit {
       this.showMessageError = false;
       if (!this.newCliente.id) {
         this.newCliente.id = (new Date()).getTime();
-        this.clienteService.addCliente(this.newCliente);
+        this.clienteService.addCliente(String(this.newCliente.id), this.newCliente);
       } else {
         this.clienteService.updateCliente(this.newCliente);
       }

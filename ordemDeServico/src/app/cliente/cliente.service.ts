@@ -11,8 +11,9 @@ export class ClienteService {
 
   constructor() { }
 
-  addCliente(cliente : Cliente) {
-    this.clientes.push(cliente);
+  addCliente(id:string, cliente : Cliente) {
+    var jsonAux = JSON.stringify(cliente);
+    window.localStorage.setItem(id, jsonAux);
   }
 
   getClientes() : Observable<Cliente[]> {
