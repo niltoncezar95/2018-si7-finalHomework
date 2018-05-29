@@ -9,6 +9,7 @@ import { OsComponent } from './os/os.component';
 import { RouteModule } from './route/route.module';
 import { CepFilterPipe } from './cliente/cep-filter.pipe';
 import { TelefoneFilterPipe } from './cliente/telefone-filter.pipe';
+import { EstadoPipe } from './cliente/estado.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TelefoneFilterPipe } from './cliente/telefone-filter.pipe';
     ClienteComponent,
     OsComponent,
     CepFilterPipe,
-    TelefoneFilterPipe
+    TelefoneFilterPipe,
+    EstadoPipe
   ],
   imports: [
     BrowserModule,

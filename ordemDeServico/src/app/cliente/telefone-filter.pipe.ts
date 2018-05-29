@@ -5,8 +5,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TelefoneFilterPipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
-    return null;
+  transform(value: string, isAddDDD: boolean): string {
+    let newValue = '';
+
+    if (isAddDDD) {
+      newValue = '(35) ';
+    }
+    newValue += value.substring(0, 4) + '-' + value.substring(4);
+
+    return newValue;
   }
 
 }
