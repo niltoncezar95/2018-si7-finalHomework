@@ -13,6 +13,7 @@ export class Cliente {
         email?: string, telefone?: string, endereco?: string,
         bairro?: string, cidade?: string, estado?: string
     ) {
+        this.id = id;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
