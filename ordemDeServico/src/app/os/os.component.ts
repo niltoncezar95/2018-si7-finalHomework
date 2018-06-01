@@ -10,33 +10,39 @@ import { OsService } from './os.service';
 })
 export class OsComponent implements OnInit {
 
- newOs : Os;
+  newOs: Os;
 
- oss : Os[];
+  oss: Os[];
+  idOs: number = 1;
 
- showMessageError : boolean;
+  showMessageError: boolean;
 
-  constructor(private osService : OsService, private location: Location) {}
+  constructor(private osService: OsService, private location: Location) { }
 
   ngOnInit() {
     this.newOs = new Os();
     this.showMessageError = false;
-    this.loadOss();
-  }
-
-  loadOss() {
-    this.osService.getOss().subscribe(
-      oss => this.oss = oss
-    );
   }
 
   saveOs() {
-    console.log("Teste")
-    console.log(this.oss)
+    console.log('TesteSaveOS')
+    // if (!this.newOs.cliente || this.newOs.cliente.nome.trim() == '') {
+    //   this.showMessageError = true;
+    // } else {
+     // this.showMessageError = false;
+      if (!this.newOs.id) {
+        this.newOs.id = localStorage.length + 1;
+        this.osService.addOs(String(this.newOs.id), this.newOs);
+      // } else {
+      //   this.osService.updateOs(this.newOs);
+      // }
+
+      this.newOs = new Os();
+    }
   }
 
   goBack(): void {
     this.location.back();
-}
+  }
 
 }
