@@ -10,6 +10,7 @@ import { ClienteService } from '../cliente.service';
 export class ClientesRelatorioComponent implements OnInit {
 
   clienteService = new ClienteService();
+  clientes: Cliente[] = [];
 
   constructor() { }
 
@@ -18,9 +19,9 @@ export class ClientesRelatorioComponent implements OnInit {
   }
 
   loadClientes() {
-    this.clienteService.getClientes()
-
-    console.log(this.clienteService.clientes[6])
+    this.clienteService.getClientes().subscribe(
+      clientes => this.clientes = clientes
+    );
   }
 
 }
