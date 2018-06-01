@@ -16,9 +16,7 @@ export class ClienteComponent implements OnInit {
 
   showMessageError: boolean;
 
-  constructor(private clienteService: ClienteService,
-    private location: Location
-  ) { }
+  constructor(private clienteService: ClienteService, private location: Location) { }
 
   ngOnInit() {
     this.newCliente = new Cliente();
