@@ -14,7 +14,7 @@ export class OsService {
   addOs(id: string, os : Os) {
     var jsonAux = JSON.stringify(os);
     id.toString;
-    window.localStorage.setItem(id, jsonAux);
+    window.localStorage.setItem('os'+id, jsonAux);
   }
 
   getTamanhoLocalStorage(): Observable<Os[]> {
@@ -43,7 +43,7 @@ export class OsService {
 
     if (cont >= 0) {
       for (let i = 1; i <= cont; i++) {
-        this.oss.push(JSON.parse(localStorage.getItem(String(i))));
+        this.oss.push(JSON.parse(localStorage.getItem('os'+String(i))));
       }
     }
     console.log(this.oss);
