@@ -9,13 +9,18 @@ import { ClienteService } from '../cliente.service';
 })
 export class ClientesRelatorioComponent implements OnInit {
 
-  clientes: any;
-  constructor(private clienteService: ClienteService
-  ) { }
+  clienteService = new ClienteService();
 
-  ngOnInit() : void {
-    this.clienteService.getClientes()
+  constructor() { }
+
+  ngOnInit(): void {
+    this.loadClientes();
   }
-  
+
+  loadClientes() {
+    this.clienteService.getClientes()
+
+    console.log(this.clienteService.clientes[6])
+  }
 
 }

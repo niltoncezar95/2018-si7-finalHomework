@@ -23,7 +23,6 @@ export class ClienteComponent implements OnInit {
   ngOnInit() {
     this.newCliente = new Cliente();
     this.showMessageError = false;
-    this.loadClientes();
   }
   
   loadClientes() {
@@ -38,7 +37,7 @@ export class ClienteComponent implements OnInit {
     } else {
       this.showMessageError = false;
       if (!this.newCliente.id) {
-        this.newCliente.id = this.idCliente++;
+        this.newCliente.id = localStorage.length+1;
         this.clienteService.addCliente(String(this.newCliente.id), this.newCliente);
       } else {
         this.clienteService.updateCliente(this.newCliente);
