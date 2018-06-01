@@ -19,10 +19,11 @@
           <!-- <tr *ngIf="clientes.length === 0">
             <td colspan="4" align="center">Nenhum registro encontrado.</td>
           </tr> -->
-          <tr *ngFor="let c of clientes">
-            <td>{{c.nome}}</td>
-            <td>{{c.email}}</td>
-            <td>{{c.telefone}}</td>
+          <tr *ngFor="let clientes of clienteService.clientes" class="clientes-relatorio">
+            <td>{{ clienteService.clientes[1].nome }}</td>
+            <td>{{ clienteService.clientes[1].email}}</td>
+            <td>{{ clienteService.clientes[1].telefone}}</td>
+            <td>{{ clienteService.clientes[1].endereco}}</td>
             <td>
               <button class="btn btn-danger" (click)="onDelete(c); $event.stopPropagation()">Deletar</button>
             </td>
