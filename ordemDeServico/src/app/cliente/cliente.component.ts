@@ -25,12 +25,6 @@ export class ClienteComponent implements OnInit {
     this.showMessageError = false;
   }
   
-  loadClientes() {
-    this.clienteService.getClientes().subscribe(
-      clientes => this.clientes = clientes
-    );
-  }
-
   saveCliente() {
     if (!this.newCliente.nome || this.newCliente.nome.trim() == '') {
       this.showMessageError = true;
