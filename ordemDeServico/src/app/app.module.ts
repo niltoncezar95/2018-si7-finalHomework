@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 import { AppComponent } from './app.component';
@@ -10,6 +11,8 @@ import { RouteModule } from './route/route.module';
 import { CepFilterPipe } from './cliente/cep-filter.pipe';
 import { TelefoneFilterPipe } from './cliente/telefone-filter.pipe';
 import { EstadoPipe } from './cliente/estado.pipe';
+import { ClientesRelatorioComponent } from './cliente/clientes-relatorio/clientes-relatorio.component';
+import { OssRelatorioComponent } from './os/oss-relatorio/oss-relatorio.component';
 
 @NgModule({
   declarations: [
@@ -18,10 +21,13 @@ import { EstadoPipe } from './cliente/estado.pipe';
     OsComponent,
     CepFilterPipe,
     TelefoneFilterPipe,
-    EstadoPipe
+    EstadoPipe,
+    ClientesRelatorioComponent,
+    OssRelatorioComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     RouteModule
   ],

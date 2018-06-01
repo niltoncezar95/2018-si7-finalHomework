@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ClienteComponent } from '../cliente/cliente.component';
 import { OsComponent } from '../os/os.component';
+import { ClientesRelatorioComponent } from '../cliente/clientes-relatorio/clientes-relatorio.component';
+import { OssRelatorioComponent } from '../os/oss-relatorio/oss-relatorio.component';
 
 
 const routes : Routes = [
   { path : 'cliente', component : ClienteComponent },
-  { path : 'os', component : OsComponent }
+  { path : 'clientes-relatorio', component : ClientesRelatorioComponent },
+  { path : 'os', component : OsComponent },
+  { path : 'oss-relatorio', component : OssRelatorioComponent }
 ];
 
 @NgModule({
