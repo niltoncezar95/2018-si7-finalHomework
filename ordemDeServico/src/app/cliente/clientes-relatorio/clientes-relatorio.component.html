@@ -16,7 +16,7 @@
         </thead>
 
         <tbody>
-          <tr *ngIf="clienteService.clientes.length === 0">
+          <tr *ngIf="clientes.length === 0">
             <td colspan="5" align="center">Nenhum registro encontrado.</td>
           </tr>
           <tr *ngFor="let cliente of clientes" class="clientes-relatorio">
@@ -30,22 +30,8 @@
           </tr>
         </tbody>
 
-        <!-- 
-              <tbody>
-                  <tr *ngIf="contatos.length === 0">
-                      <td colspan="4" align="center">Nenhum registro encontrado.</td>
-                  </tr>
-                  <tr *ngFor="let c of contatos" [routerLink]="['/contato/save', c.id]">
-                      <td>{{c.nome}}</td>
-                      <td>{{c.email}}</td>
-                      <td>{{c.telefone}}</td>
-                      <td><button class="btn btn-danger" (click)="onDelete(c); $event.stopPropagation()">Deletar</button></td>
-                  </tr>
-              </tbody> -->
-
       </table>
     </div>
   </div>
-
 
 </div>

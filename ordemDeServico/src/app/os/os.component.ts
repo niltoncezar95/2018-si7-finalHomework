@@ -35,7 +35,6 @@ export class OsComponent implements OnInit {
     console.log(this.oss)
   }
 
-
   goBack(): void {
     this.location.back();
 }
