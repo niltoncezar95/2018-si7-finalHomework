@@ -11,7 +11,8 @@ import { ClienteService } from './cliente.service';
 export class ClienteComponent implements OnInit {
   newCliente: Cliente;
 
-  clientes: Cliente[];
+  clientes: Cliente[] = [];
+  idCliente: number = 1;
 
   showMessageError: boolean;
 
@@ -32,13 +33,12 @@ export class ClienteComponent implements OnInit {
   }
 
   saveCliente() {
-    console.log("Teste")
     if (!this.newCliente.nome || this.newCliente.nome.trim() == '') {
       this.showMessageError = true;
     } else {
       this.showMessageError = false;
       if (!this.newCliente.id) {
-        this.newCliente.id = (new Date()).getTime();
+        this.newCliente.id = this.idCliente++;
         this.clienteService.addCliente(String(this.newCliente.id), this.newCliente);
       } else {
         this.clienteService.updateCliente(this.newCliente);
@@ -46,7 +46,6 @@ export class ClienteComponent implements OnInit {
 
       this.newCliente = new Cliente();
     }
-    console.log(this.clientes)
   }
 
   goBack(): void {
