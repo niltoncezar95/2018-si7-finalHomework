@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Os } from '../os';
+import { OsService } from '../os.service';
 
 @Component({
   selector: 'app-oss-relatorio',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OssRelatorioComponent implements OnInit {
 
+  osService = new OsService();
+  oss: Os[] = [];
+
   constructor() { }
 
   ngOnInit() {
+    this.loadOss();
   }
+
+  loadOss() {
+    this.osService.getOss().subscribe(
+      oss => this.oss = oss
+    );
+  }
+
 
 }
