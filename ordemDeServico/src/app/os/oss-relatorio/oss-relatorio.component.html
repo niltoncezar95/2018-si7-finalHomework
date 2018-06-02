@@ -7,10 +7,10 @@
 
         <thead>
           <tr>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Telefone</th>
-            <th>Endereco</th>
+            <th>Cliente</th>
+            <th>Equipamento</th>
+            <th>Defeito</th>
+            <th>Observações</th>
             <th>Deletar</th>
           </tr>
         </thead>
@@ -20,8 +20,10 @@
             <td colspan="5" align="center">Nenhum registro encontrado.</td>
           </tr>
           <tr *ngFor="let os of oss" class="oss-relatorio">
-            <!-- <td>{{ os.equipamento}}</td>
-            <td>{{ os.defeito}}</td> -->
+            <td>{{ os.cliente}}</td>
+            <td>{{ os.equipamento}}</td>
+            <td>{{ os.defeito}}</td>
+            <td>{{ os.observacoes}}</td>
             <td>
               <button class="btn btn-danger" (click)="onDelete(c); $event.stopPropagation()">Deletar</button>
             </td>

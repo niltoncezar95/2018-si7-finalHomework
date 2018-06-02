@@ -14,7 +14,7 @@ export class ClienteService {
   addCliente(id: string, cliente: Cliente) {
     var jsonAux = JSON.stringify(cliente);
     id.toString;
-    window.localStorage.setItem('cliente'+id, jsonAux);
+    window.localStorage.setItem('cliente' + id, jsonAux);
   }
 
   getTamanhoLocalStorage(): Observable<Cliente[]> {
@@ -43,11 +43,12 @@ export class ClienteService {
 
     if (cont >= 0) {
       for (let i = 1; i <= cont; i++) {
-        this.clientes.push(JSON.parse(localStorage.getItem('cliente'+String(i))));
+        if (localStorage.getItem('cliente' + String(i)) != null)
+          this.clientes.push(JSON.parse(localStorage.getItem('cliente' + String(i))));
       }
-    }
-    console.log(this.clientes);
-    return of(this.clientes);
-  }
 
+      return of(this.clientes);
+    }
+
+  }
 }

@@ -9,9 +9,8 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect2">Marca do Equipamento</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2" name="marca"
-    [(ngModel)]="newOs.equipamento">
-      <option *ngFor="let marcaEquip of marcasEquip" >
+    <select multiple class="form-control" id="exampleFormControlSelect2" name="marca" [(ngModel)]="newOs.equipamento">
+      <option *ngFor="let marcaEquip of marcasEquip">
         {{marcaEquip}}
       </option>
     </select>

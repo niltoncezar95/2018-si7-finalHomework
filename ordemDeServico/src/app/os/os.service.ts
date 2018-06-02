@@ -5,16 +5,16 @@ import { of, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class OsService {  
-  
-  oss : Os[] = [];
+export class OsService {
+
+  oss: Os[] = [];
 
   constructor() { }
 
-  addOs(id: string, os : Os) {
+  addOs(id: string, os: Os) {
     var jsonAux = JSON.stringify(os);
     id.toString;
-    window.localStorage.setItem('os'+id, jsonAux);
+    window.localStorage.setItem('os' + id, jsonAux);
   }
 
   getTamanhoLocalStorage(): Observable<Os[]> {
@@ -38,15 +38,16 @@ export class OsService {
     existOs.cliente = os.cliente;
   }
 
-  getOss() : Observable<Os[]> {
+  getOss(): Observable<Os[]> {
     var cont = localStorage.length;
 
     if (cont >= 0) {
-      for (let i = 1; i <= cont; i++) {
-        this.oss.push(JSON.parse(localStorage.getItem('os'+String(i))));
+      for (let i = 0; i <= cont; i++) {
+        if (localStorage.getItem('os' + String(i)) != null)
+          this.oss.push(JSON.parse(localStorage.getItem('os' + String(i))));
       }
     }
-    console.log(this.oss);
+
     return of(this.oss);
   }
 

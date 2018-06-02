@@ -16,12 +16,9 @@ export class OsComponent implements OnInit {
 
   clientes: Cliente[] = [];
   clienteService = new ClienteService();
-  idOs: number = 1;
 
+  marcasEquip = ['Acer', 'Dell', 'HP', 'Lenovo', 'Positivo'];
 
-  marcasEquip: Array<string> = ['Acer', 'Dell', 'HP', 'Lenovo', 'Positivo'];
-
- 
   showMessageError: boolean;
 
   constructor(private osService: OsService, private location: Location) { }
@@ -34,29 +31,29 @@ export class OsComponent implements OnInit {
 
   saveOs() {
     console.log('TesteSaveOS')
-    // if (!this.newOs.cliente || this.newOs.cliente.nome.trim() == '') {
-    //   this.showMessageError = true;
-    // } else {
-     // this.showMessageError = false;
-      // if (!this.newOs.id) {
+    if (!this.newOs.cliente) {
+      // this.showMessageError = true;
+      console.log('Escolha um Cliente')
+    } else {
+      this.showMessageError = false;
+      if (!this.newOs.id) {
         this.newOs.id = localStorage.length + 1;
         this.osService.addOs(String(this.newOs.id), this.newOs);
-      // } else {
-      //   this.osService.updateOs(this.newOs);
-      // }
+      } else {
+        this.osService.updateOs(this.newOs);
+      }
 
-       this.newOs = new Os();
-      // console.log(this.loadClientes);
+      this.newOs = new Os();
     }
-  //}
+  }
 
   loadClientes() {
     this.clienteService.getClientes().subscribe(
       clientes => this.clientes = clientes
     );
-    
+
   }
-  
+
   goBack(): void {
     this.location.back();
   }
