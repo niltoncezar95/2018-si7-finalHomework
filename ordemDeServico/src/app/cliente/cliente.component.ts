@@ -12,7 +12,6 @@ export class ClienteComponent implements OnInit {
   newCliente: Cliente;
 
   clientes: Cliente[] = [];
-  idCliente: number = 1;
 
   showMessageError: boolean;
 
@@ -25,7 +24,8 @@ export class ClienteComponent implements OnInit {
   
   saveCliente() {
     if (!this.newCliente.nome || this.newCliente.nome.trim() == '') {
-      this.showMessageError = true;
+      // this.showMessageError = true;
+      console.log('Cliente em Nullo')
     } else {
       this.showMessageError = false;
       if (!this.newCliente.id) {
