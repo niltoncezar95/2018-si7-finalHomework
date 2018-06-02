@@ -22,7 +22,7 @@
           <tr *ngFor="let cliente of clientes" class="clientes-relatorio">
             <td>{{ cliente.nome }}</td>
             <td>{{ cliente.email}}</td>
-            <td>{{ cliente.telefone}}</td>
+            <td>{{ cliente.telefone | telefoneFilter : true}}</td>
             <td>{{ cliente.endereco}}</td>
             <td>
               <button class="btn btn-danger" (click)="onDelete(c); $event.stopPropagation()">Deletar</button>
