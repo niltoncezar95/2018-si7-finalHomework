@@ -38,17 +38,15 @@ export class ClienteService {
     existCliente.nome = cliente.nome;
   }
 
-  getClientes(): Observable<Cliente[]> {
-    var cont = localStorage.length;
+  removeCliente(cliente: Cliente){ 
+    localStorage.removeItem('cliente' + cliente.id);
+  }
 
-    if (cont >= 0) {
-      for (let i = 1; i <= cont; i++) {
-        if (localStorage.getItem('cliente' + String(i)) != null)
-          this.clientes.push(JSON.parse(localStorage.getItem('cliente' + String(i))));
-      }
-
-      return of(this.clientes);
-    }
-
+  getClientes() {
+    return Object.keys(localStorage).filter(function(key) {
+        return key.indexOf('cliente') == 0;
+    }).map(function(key) {
+        return JSON.parse(localStorage[key]);
+    });
   }
 }

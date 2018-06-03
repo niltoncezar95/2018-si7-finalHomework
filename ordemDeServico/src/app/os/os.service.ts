@@ -38,17 +38,16 @@ export class OsService {
     existOs.cliente = os.cliente;
   }
 
-  getOss(): Observable<Os[]> {
-    var cont = localStorage.length;
+  removeOs(os: Os){
+    localStorage.removeItem('os' + os.id);
+  }
 
-    if (cont >= 0) {
-      for (let i = 0; i <= cont; i++) {
-        if (localStorage.getItem('os' + String(i)) != null)
-          this.oss.push(JSON.parse(localStorage.getItem('os' + String(i))));
-      }
-    }
-
-    return of(this.oss);
+  getOss() {
+    return Object.keys(localStorage).filter(function(key) {
+        return key.indexOf('os') == 0;
+    }).map(function(key) {
+        return JSON.parse(localStorage[key]);
+    });
   }
 
 }

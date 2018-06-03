@@ -18,11 +18,14 @@ export class OssRelatorioComponent implements OnInit {
     this.loadOss();
   }
 
-  loadOss() {
-    this.osService.getOss().subscribe(
-      oss => this.oss = oss
-    );
+  removeOs(os: Os){
+    this.oss.splice(this.oss.indexOf(os), 1);
+    this.osService.removeOs(os);
+    this.loadOss;
   }
 
+  loadOss() {
+    this.oss = this.osService.getOss()
+  }
 
 }
