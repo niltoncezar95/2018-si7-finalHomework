@@ -18,10 +18,14 @@ export class ClientesRelatorioComponent implements OnInit {
     this.loadClientes();
   }
 
+  removeCliente(cliente: Cliente){
+    this.clientes.splice(this.clientes.indexOf(cliente), 1);
+    this.clienteService.removeCliente(cliente);
+    this.loadClientes;
+  }
+
   loadClientes() {
-    this.clienteService.getClientes().subscribe(
-      clientes => this.clientes = clientes
-    );
+    this.clientes = this.clienteService.getClientes()
   }
 
 }

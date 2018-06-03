@@ -25,7 +25,7 @@
             <td>{{ os.defeito}}</td>
             <td>{{ os.observacoes}}</td>
             <td>
-              <button class="btn btn-danger" (click)="onDelete(c); $event.stopPropagation()">Deletar</button>
+              <input type="button" value="Deletar" class="btn btn-danger" (click)="removeOs(os)">
             </td>
           </tr>
         </tbody>

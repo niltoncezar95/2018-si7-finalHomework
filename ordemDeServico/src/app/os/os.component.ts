@@ -37,7 +37,7 @@ export class OsComponent implements OnInit {
     } else {
       this.showMessageError = false;
       if (!this.newOs.id) {
-        this.newOs.id = localStorage.length + 1;
+        this.newOs.id = (new Date()).getTime();
         this.osService.addOs(String(this.newOs.id), this.newOs);
       } else {
         this.osService.updateOs(this.newOs);
@@ -48,10 +48,7 @@ export class OsComponent implements OnInit {
   }
 
   loadClientes() {
-    this.clienteService.getClientes().subscribe(
-      clientes => this.clientes = clientes
-    );
-
+    this.clientes = this.clienteService.getClientes()
   }
 
   goBack(): void {
