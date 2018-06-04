@@ -17,13 +17,8 @@ export class ClienteService {
     window.localStorage.setItem('cliente' + id, jsonAux);
   }
 
-  getTamanhoLocalStorage(): Observable<Cliente[]> {
-    console.log(localStorage.length);
-    return of(this.clientes);
-  } // Acho que pode excluir este bloco.
-
   getCliente(key: string) {
-      return JSON.parse(localStorage.getItem(key));
+    return JSON.parse(localStorage.getItem(key));
   }
 
   updateCliente(cliente: Cliente) {
@@ -31,15 +26,15 @@ export class ClienteService {
     window.localStorage.setItem('cliente' + cliente.id, jsonAux);
   }
 
-  removeCliente(cliente: Cliente){ 
+  removeCliente(cliente: Cliente) {
     localStorage.removeItem('cliente' + cliente.id);
   }
 
   getClientes() {
-    return Object.keys(localStorage).filter(function(key) {
-        return key.indexOf('cliente') == 0;
-    }).map(function(key) {
-        return JSON.parse(localStorage[key]);
+    return Object.keys(localStorage).filter(function (key) {
+      return key.indexOf('cliente') == 0;
+    }).map(function (key) {
+      return JSON.parse(localStorage[key]);
     });
   }
 }

@@ -11,6 +11,7 @@
             <th>Email</th>
             <th>Telefone</th>
             <th>Endereco</th>
+            <th>Estado</th>
             <th></th>
           </tr>
         </thead>
@@ -24,9 +25,10 @@
             <td>{{ cliente.email}}</td>
             <td>{{ cliente.telefone | telefoneFilter : true}}</td>
             <td>{{ cliente.endereco}}</td>
+            <td>{{ cliente.estado | estado}}</td>
             <td>
-              <button type="button" class="btn btn-outline-info btn-sm " [routerLink]="['/cliente-detalhe', cliente.id]">View / Edit</button>
-              <button type="button" class="btn btn-outline-danger btn-sm " (click)="removeCliente(cliente); $event.stopPropagation()">Delete </button>
+              <button type="button" class="btn btn-outline-info btn-sm" [routerLink]="['/cliente-detalhe', cliente.id]">View / Edit</button>
+              <button type="button" class="btn btn-outline-danger btn-sm espaco" (click)="removeCliente(cliente); $event.stopPropagation()">Delete </button>
             </td>
           </tr>
         </tbody>

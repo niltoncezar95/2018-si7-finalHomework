@@ -16,7 +16,7 @@ export class ClienteDetalheComponent implements OnInit {
   cliente: Cliente;
   id: string;
 
-  constructor(private route: ActivatedRoute,  private location: Location) {
+  constructor(private route: ActivatedRoute, private location: Location) {
     this.id = this.route.snapshot.params['id']
   }
 
