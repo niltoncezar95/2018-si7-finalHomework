@@ -19,14 +19,14 @@
           <tr *ngIf="clientes.length === 0">
             <td colspan="5" align="center">Nenhum registro encontrado.</td>
           </tr>
-          <tr *ngFor="let cliente of clientes" class="clientes-relatorio">
+          <tr *ngFor="let cliente of clientes">
             <td>{{ cliente.nome }}</td>
             <td>{{ cliente.email}}</td>
             <td>{{ cliente.telefone | telefoneFilter : true}}</td>
             <td>{{ cliente.endereco}}</td>
             <td>
-              <button type="button" class="btn btn-outline-info btn-sm " routerLink="/cliente-detalhe">View / Edit</button>
-              <button type="button" class="btn btn-outline-danger btn-sm " (click)="removeCliente(cliente)">Delete </button>
+              <button type="button" class="btn btn-outline-info btn-sm " class="clientes-relatorio" [routerLink]="['/cliente-detalhe', cliente.id]">View / Edit</button>
+              <button type="button" class="btn btn-outline-danger btn-sm " (click)="removeCliente(cliente); $event.stopPropagation()">Delete </button>
             </td>
 
           </tr>

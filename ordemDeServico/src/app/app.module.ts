@@ -13,6 +13,8 @@ import { TelefoneFilterPipe } from './cliente/telefone-filter.pipe';
 import { EstadoPipe } from './cliente/estado.pipe';
 import { ClientesRelatorioComponent } from './cliente/clientes-relatorio/clientes-relatorio.component';
 import { OssRelatorioComponent } from './os/oss-relatorio/oss-relatorio.component';
+import { ClienteDetalheComponent } from './cliente/cliente-detalhe/cliente-detalhe.component';
+import { OsDetalheComponent } from './os/os-detalhe/os-detalhe.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { OssRelatorioComponent } from './os/oss-relatorio/oss-relatorio.componen
     TelefoneFilterPipe,
     EstadoPipe,
     ClientesRelatorioComponent,
-    OssRelatorioComponent
+    OssRelatorioComponent,
+    ClienteDetalheComponent,
+    OsDetalheComponent
   ],
   imports: [
     BrowserModule,
