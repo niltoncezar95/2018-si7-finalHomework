@@ -1,3 +1,38 @@
-<p>
-  os-detalhe works!
-</p>
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="inputId8">ID</label>
+      <input type="text" class="form-control" id="inputId" name="id" [(ngModel)]="os.id" (ngModelChange)="os.id= $event" disabled>
+    </div>
+    <div class="form-group col-md-5">
+      <label for="exampleFormControlSelect1">Cliente</label>
+      <select class="form-control" name="cliente" [(ngModel)]="os.cliente" (ngModelChange)="os.cliente= $event">
+        <option *ngFor="let cliente of clientes">
+          {{cliente.nome}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-5">
+      <label for="exampleFormControlSelect2">Marca do Equipamento</label>
+      <select class="form-control" id="exampleFormControlSelect2" name="equipamento" [(ngModel)]="os.equipamento" (ngModelChange)="os.equipamento= $event">
+        <option *ngFor="let marcaEquip of marcasEquip">
+          {{marcaEquip}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputDefeitoOs">Defeito apresentado</label>
+    <textarea class="form-control" id="inputDefeito" rows="3" name="defeito" [(ngModel)]="os.defeito" (ngModelChange)="os.defeito= $event">
+      </textarea>
+  </div>
+  <div class="form-group">
+    <label for="inputObservacoesOs">Outras observações</label>
+    <textarea class="form-control" id="inputObservacoesCliente" rows="3" name="observacoes" [(ngModel)]="os.observacoes" (ngModelChange)="os.observacoes= $event">
+      </textarea>
+  </div>
+  <button type="submit" class="btn btn-success" (click)="saveOs()">Salvar</button>
+  <button type="button" class="btn btn-secondary" (click)="goBack()">Voltar</button>
+
+</form>

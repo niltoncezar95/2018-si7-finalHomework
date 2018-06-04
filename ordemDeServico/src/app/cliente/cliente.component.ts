@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { Cliente } from './cliente';
+import { Location } from '@angular/common';
 import { ClienteService } from './cliente.service';
 
 @Component({

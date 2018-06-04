@@ -12,11 +12,12 @@ import { OsDetalheComponent } from '../os/os-detalhe/os-detalhe.component';
 const routes : Routes = [
   { path : 'cliente', component : ClienteComponent },
   { path : 'cliente-detalhe', component : ClienteDetalheComponent },
+  { path : 'cliente-detalhe/:id',component: ClienteDetalheComponent },
   { path : 'clientes-relatorio', component : ClientesRelatorioComponent },
   { path : 'os', component : OsComponent },
   { path : 'os-detalhe', component : OsDetalheComponent },
-  { path : 'oss-relatorio', component : OssRelatorioComponent },
-  { path: 'cliente-detalhe/:id',component: ClienteDetalheComponent }
+  { path : 'os-detalhe/:id', component : OsDetalheComponent },
+  { path : 'oss-relatorio', component : OssRelatorioComponent }
 ];
 
 @NgModule({

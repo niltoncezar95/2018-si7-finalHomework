@@ -1,5 +1,5 @@
 <div>
-  
+
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
@@ -25,9 +25,9 @@
             <td>{{ os.defeito}}</td>
             <td>{{ os.observacoes}}</td>
             <td>
-                <button type="button" class="btn btn-outline-info btn-sm " (click)="removeOs(os)">View / Edit</button>
-                <button type="button" class="btn btn-outline-danger btn-sm " (click)="removeOs(os)">Delete </button>
-              </td>
+              <button type="button" class="btn btn-outline-info btn-sm " [routerLink]="['/os-detalhe', os.id]">View / Edit</button>
+              <button type="button" class="btn btn-outline-danger btn-sm " (click)="removeOs(os)">Delete </button>
+            </td>
           </tr>
         </tbody>
 

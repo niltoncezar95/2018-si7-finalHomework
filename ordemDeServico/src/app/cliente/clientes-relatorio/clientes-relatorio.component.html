@@ -25,10 +25,9 @@
             <td>{{ cliente.telefone | telefoneFilter : true}}</td>
             <td>{{ cliente.endereco}}</td>
             <td>
-              <button type="button" class="btn btn-outline-info btn-sm " class="clientes-relatorio" [routerLink]="['/cliente-detalhe', cliente.id]">View / Edit</button>
+              <button type="button" class="btn btn-outline-info btn-sm " [routerLink]="['/cliente-detalhe', cliente.id]">View / Edit</button>
               <button type="button" class="btn btn-outline-danger btn-sm " (click)="removeCliente(cliente); $event.stopPropagation()">Delete </button>
             </td>
-
           </tr>
         </tbody>
 

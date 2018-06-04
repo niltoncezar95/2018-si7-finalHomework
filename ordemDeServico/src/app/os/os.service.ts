@@ -24,13 +24,7 @@ export class OsService {
   }
 
   getOs(key: string) {
-    console.log(JSON.parse(localStorage.getItem(key)))
-    try {
-      return JSON.parse(localStorage.getItem(key));
-    } catch (e) {
-      console.error('Error getting data from localStorage', e);
-      return null;
-    }
+    return JSON.parse(localStorage.getItem(key));
   }
 
   updateOs(os: Os) {
@@ -38,15 +32,15 @@ export class OsService {
     existOs.cliente = os.cliente;
   }
 
-  removeOs(os: Os){
+  removeOs(os: Os) {
     localStorage.removeItem('os' + os.id);
   }
 
   getOss() {
-    return Object.keys(localStorage).filter(function(key) {
-        return key.indexOf('os') == 0;
-    }).map(function(key) {
-        return JSON.parse(localStorage[key]);
+    return Object.keys(localStorage).filter(function (key) {
+      return key.indexOf('os') == 0;
+    }).map(function (key) {
+      return JSON.parse(localStorage[key]);
     });
   }
 
