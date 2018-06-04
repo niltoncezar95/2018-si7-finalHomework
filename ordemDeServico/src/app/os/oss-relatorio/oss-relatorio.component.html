@@ -26,7 +26,7 @@
             <td>{{ os.observacoes}}</td>
             <td>
               <button type="button" class="btn btn-outline-info btn-sm " [routerLink]="['/os-detalhe', os.id]">View / Edit</button>
-              <button type="button" class="btn btn-outline-danger btn-sm " (click)="removeOs(os)">Delete </button>
+              <button type="button" class="btn btn-outline-danger btn-sm espaco" (click)="removeOs(os)">Delete </button>
             </td>
           </tr>
         </tbody>

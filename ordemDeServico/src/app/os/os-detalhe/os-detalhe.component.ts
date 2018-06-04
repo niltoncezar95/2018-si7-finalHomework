@@ -5,7 +5,6 @@ import { OsService } from '../os.service';
 import { Os } from '../os';
 import { Cliente } from '../../cliente/cliente';
 import { ClienteService } from '../../cliente/cliente.service';
-import { RSA_SSLV23_PADDING } from 'constants';
 
 @Component({
   selector: 'app-os-detalhe',
@@ -34,7 +33,7 @@ export class OsDetalheComponent implements OnInit {
     this.os = this.osService.getOs('os' + String(this.id))
   }
 
-  saveOs() {
+  updateOs() {
     this.osService.updateOs(this.os);
     window.alert("Alteração salva.")
     this.goBack();
