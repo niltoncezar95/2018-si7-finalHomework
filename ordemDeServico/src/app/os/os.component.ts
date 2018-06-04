@@ -17,7 +17,7 @@ export class OsComponent implements OnInit {
   clientes: Cliente[] = [];
   clienteService = new ClienteService();
 
-  marcasEquip = ['Acer', 'Dell', 'HP', 'Lenovo', 'Positivo'];
+  marcasEquip = ['Acer','Asus','Dell','HP','Lenovo','Positivo'];
 
   showMessageError: boolean;
 
@@ -30,9 +30,7 @@ export class OsComponent implements OnInit {
   }
 
   saveOs() {
-    console.log('TesteSaveOS')
     if (!this.newOs.cliente) {
-      // this.showMessageError = true;
       console.log('Escolha um Cliente')
     } else {
       this.showMessageError = false;
