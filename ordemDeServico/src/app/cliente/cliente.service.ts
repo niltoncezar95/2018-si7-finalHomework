@@ -24,13 +24,13 @@ export class ClienteService {
   }
 
   getCliente(key: string) {
-    console.log(JSON.parse(localStorage.getItem(key)))
-    try {
+    //console.log(JSON.parse(localStorage.getItem(key)))
+    //try {
       return JSON.parse(localStorage.getItem(key));
-    } catch (e) {
-      console.error('Error getting data from localStorage', e);
-      return null;
-    }
+   // } catch (e) {
+    //  console.error('Error getting data from localStorage', e);
+    //  return null;
+    //}
   }
 
   updateCliente(cliente: Cliente) {
