@@ -20,16 +20,15 @@ export class ClienteService {
   getTamanhoLocalStorage(): Observable<Cliente[]> {
     console.log(localStorage.length);
     return of(this.clientes);
-
-  }
+  } // Acho que pode excluir este bloco.
 
   getCliente(key: string) {
       return JSON.parse(localStorage.getItem(key));
   }
 
   updateCliente(cliente: Cliente) {
-    let existCliente = this.clientes.find(cli => cli.id == cli.id);
-    existCliente.nome = cliente.nome;
+    var jsonAux = JSON.stringify(cliente);
+    window.localStorage.setItem('cliente' + cliente.id, jsonAux);
   }
 
   removeCliente(cliente: Cliente){ 

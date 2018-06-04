@@ -20,16 +20,15 @@ export class OsService {
   getTamanhoLocalStorage(): Observable<Os[]> {
     console.log(localStorage.length);
     return of(this.oss);
-
-  }
+  }// Acho que pode excluir este bloco.
 
   getOs(key: string) {
     return JSON.parse(localStorage.getItem(key));
   }
 
   updateOs(os: Os) {
-    let existOs = this.oss.find(os => os.id == os.id);
-    existOs.cliente = os.cliente;
+    var jsonAux = JSON.stringify(os);
+    window.localStorage.setItem('os' + os.id, jsonAux);
   }
 
   removeOs(os: Os) {

@@ -31,7 +31,7 @@ export class OsComponent implements OnInit {
 
   saveOs() {
     if (!this.newOs.cliente) {
-      console.log('Escolha um Cliente')
+      window.alert("Escolha um cliente.")
     } else {
       this.showMessageError = false;
       if (!this.newOs.id) {

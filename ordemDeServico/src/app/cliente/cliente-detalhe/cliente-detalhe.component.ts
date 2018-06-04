@@ -24,9 +24,10 @@ export class ClienteDetalheComponent implements OnInit {
     this.loadCliente();
   }
 
-  onSubmit(): void {
-    console.log('Alterar contato');
-    // this.clienteService.updateCliente(this.cliente);
+  updateCliente() {
+    this.clienteService.updateCliente(this.cliente);
+    window.alert("Alteração salva.")
+    this.goBack();
   }
 
   loadCliente() {
