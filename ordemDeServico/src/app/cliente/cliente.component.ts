@@ -21,11 +21,9 @@ export class ClienteComponent implements OnInit {
     this.newCliente = new Cliente();
     this.showMessageError = false;
   }
-  
+
   saveCliente() {
     if (!this.newCliente.nome || this.newCliente.nome.trim() == '') {
-      // this.showMessageError = true;
-      console.log('Cliente em Nullo')
     } else {
       this.showMessageError = false;
       if (!this.newCliente.id) {
