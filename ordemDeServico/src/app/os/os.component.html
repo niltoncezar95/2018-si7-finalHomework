@@ -4,7 +4,7 @@
     <select class="form-control" name="cliente" name="cliente" 
     required
     [(ngModel)]="newOs.cliente">
-      <option *ngFor="let cliente of clientes">
+      <option *ngFor="let cliente of clientes" [ngValue]="cliente">
         {{cliente.nome}}
       </option>
     </select>

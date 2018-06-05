@@ -20,7 +20,7 @@
             <td colspan="5" align="center">Nenhum registro encontrado.</td>
           </tr>
           <tr *ngFor="let os of oss" class="oss-relatorio">
-            <td>{{ os.cliente}}</td>
+            <td>{{ os.cliente.nome}}</td>
             <td>{{ os.equipamento}}</td>
             <td>{{ os.defeito}}</td>
             <td>{{ os.observacoes}}</td>

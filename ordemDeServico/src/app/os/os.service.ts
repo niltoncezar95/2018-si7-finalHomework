@@ -17,11 +17,6 @@ export class OsService {
     window.localStorage.setItem('os' + id, jsonAux);
   }
 
-  getTamanhoLocalStorage(): Observable<Os[]> {
-    console.log(localStorage.length);
-    return of(this.oss);
-  }// Acho que pode excluir este bloco.
-
   getOs(key: string) {
     return JSON.parse(localStorage.getItem(key));
   }
