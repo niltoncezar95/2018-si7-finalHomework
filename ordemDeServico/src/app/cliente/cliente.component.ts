@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cliente } from './cliente';
 import { Location } from '@angular/common';
 import { ClienteService } from './cliente.service';
+import { ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-cliente',
@@ -9,6 +10,9 @@ import { ClienteService } from './cliente.service';
   styleUrls: ['./cliente.component.css']
 })
 export class ClienteComponent implements OnInit {
+  
+  @ViewChild('name') inputElement : ElementRef;
+
   newCliente: Cliente;
 
   clientes: Cliente[] = [];
@@ -20,6 +24,7 @@ export class ClienteComponent implements OnInit {
   ngOnInit() {
     this.newCliente = new Cliente();
     this.showMessageError = false;
+    this.setFocus();
   }
 
   saveCliente() {
@@ -34,7 +39,12 @@ export class ClienteComponent implements OnInit {
       }
 
       this.newCliente = new Cliente();
+      this.setFocus();
     }
+  }
+
+  setFocus(){
+    this.inputElement.nativeElement.focus();
   }
 
   goBack(): void {
