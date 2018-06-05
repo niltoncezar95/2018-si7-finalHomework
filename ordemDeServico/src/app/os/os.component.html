@@ -1,7 +1,9 @@
-<form>
+<form #osForm="ngForm">
   <div class="form-group">
     <label for="exampleFormControlSelect1">Cliente</label>
-    <select class="form-control" name="cliente" name="cliente" [(ngModel)]="newOs.cliente">
+    <select class="form-control" name="cliente" name="cliente" 
+    required
+    [(ngModel)]="newOs.cliente">
       <option *ngFor="let cliente of clientes">
         {{cliente.nome}}
       </option>
@@ -9,7 +11,9 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect2">Marca do Equipamento</label>
-    <select class="form-control" id="exampleFormControlSelect2" name="marca" [(ngModel)]="newOs.equipamento">
+    <select class="form-control" id="exampleFormControlSelect2" name="marca" 
+    required
+    [(ngModel)]="newOs.equipamento">
       <option *ngFor="let marcaEquip of marcasEquip">
         {{marcaEquip}}
       </option>
@@ -18,13 +22,15 @@
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Defeito apresentado</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ex: Derramou Líquido no teclado" name="defeito"
-      [(ngModel)]="newOs.defeito"></textarea>
+    required
+    [(ngModel)]="newOs.defeito"></textarea>
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea2">Outras observações</label>
-    <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" placeholder="Ex: Verificar se não danificou outras peças"
-      name="observacoes" [(ngModel)]="newOs.observacoes"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" placeholder="Ex: Verificar se não danificou outras peças"name="observacoes" 
+    required
+    [(ngModel)]="newOs.observacoes"></textarea>
   </div>
-  <button type="submit" class="btn btn-success" (click)="saveOs()">Salvar</button>
+  <button type="submit" class="btn btn-success" (click)="saveOs()" [disabled]="!osForm.form.valid">Salvar</button>
   <button type="button" class="btn btn-secondary espaco" (click)="goBack()">Voltar</button>
 </form>
