@@ -9,7 +9,7 @@
       <select class="form-control" name="cliente" 
       required
       [(ngModel)]="os.cliente" (ngModelChange)="os.cliente= $event">
-        <option *ngFor="let cliente of clientes" [ngValue]="nome">
+        <option *ngFor="let cliente of clientes">
           {{os.cliente}}
         </option>
       </select>
