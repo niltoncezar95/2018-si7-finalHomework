@@ -40,7 +40,7 @@
     [(ngModel)]="os.observacoes" (ngModelChange)="os.observacoes= $event">
       </textarea>
   </div>
-  <button type="submit" class="btn btn-success" (click)="saveOs()" [disabled]="!osDetalheForm.form.valid">Atualizar dados</button>
+  <button type="submit" class="btn btn-success" (click)="updateOs()" [disabled]="!osDetalheForm.form.valid">Atualizar dados</button>
   <button type="button" class="btn btn-secondary espaco" (click)="goBack()">Voltar</button>
 
 </form>
