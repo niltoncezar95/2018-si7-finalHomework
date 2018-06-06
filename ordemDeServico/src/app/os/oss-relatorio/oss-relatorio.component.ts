@@ -15,7 +15,6 @@ export class OssRelatorioComponent implements OnInit {
   clienteService: ClienteService;
   private osService = new OsService();
   os: Os;
-  id: number = 1528242257091;
   oss: Os[] = [];
   ossTemp: Os[] = [];
 
@@ -30,6 +29,7 @@ export class OssRelatorioComponent implements OnInit {
     this.oss.splice(this.oss.indexOf(os), 1);
     this.osService.removeOs(os);
     this.loadOss;
+    console.log('passei aqui de novo')
   }
 
   loadOss() {
@@ -37,13 +37,13 @@ export class OssRelatorioComponent implements OnInit {
   }
 
   loadOs() {
+    let id = 0;
     for(let i=0; i<this.oss.length;i++){
-        this.id = this.oss[i].id
-        this.os = this.osService.getOs('os' + String(this.id))
+        id = this.oss[i].id
+        this.os = this.osService.getOs('os' + String(id))
         this.os.cliente = JSON.parse(localStorage.getItem('cliente'+this.os.cliente.id))
         this.ossTemp.push(this.os);
         console.log(this.os)
-        
     }
     this.oss = this.ossTemp
   }
