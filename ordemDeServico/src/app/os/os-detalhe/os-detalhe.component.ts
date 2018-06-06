@@ -22,6 +22,7 @@ export class OsDetalheComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private location: Location) {
     this.id = this.route.snapshot.params['id']
+    
   }
 
   ngOnInit() {
@@ -31,6 +32,11 @@ export class OsDetalheComponent implements OnInit {
 
   loadOs() {
     this.os = this.osService.getOs('os' + String(this.id))
+    this.os.cliente = this.clienteService.getCliente('cliente'+this.os.cliente.id)
+     console.log(this.os.cliente)
+     console.log(this.os.cliente.id)
+     console.log(this.os.cliente.nome)
+     console.log(this.os)
   }
 
   updateOs() {

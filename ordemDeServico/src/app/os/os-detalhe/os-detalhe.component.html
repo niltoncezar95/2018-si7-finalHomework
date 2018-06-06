@@ -10,7 +10,7 @@
       required
       [(ngModel)]="os.cliente" (ngModelChange)="os.cliente= $event">
         <option *ngFor="let cliente of clientes">
-          {{os.cliente}}
+          {{os.cliente.nome}}
         </option>
       </select>
     </div>
