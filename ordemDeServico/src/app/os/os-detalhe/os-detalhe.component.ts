@@ -5,6 +5,7 @@ import { OsService } from '../os.service';
 import { Os } from '../os';
 import { Cliente } from '../../cliente/cliente';
 import { ClienteService } from '../../cliente/cliente.service';
+import { OssRelatorioComponent } from '../oss-relatorio/oss-relatorio.component';
 
 @Component({
   selector: 'app-os-detalhe',
@@ -19,6 +20,7 @@ export class OsDetalheComponent implements OnInit {
   os: Os;
   id: number;
   marcasEquip = ['Acer','Asus','Dell','HP','Lenovo','Positivo'];
+  osRelatorioComponent: OssRelatorioComponent
 
   constructor(private route: ActivatedRoute, private location: Location) {
     this.id = this.route.snapshot.params['id']
