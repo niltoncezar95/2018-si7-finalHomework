@@ -28,21 +28,17 @@ export class OsDetalheComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadOs();
     this.loadClientes();
   }
 
   loadOs() {
     this.os = this.osService.getOs('os' + String(this.id))
     this.os.cliente = this.clienteService.getCliente('cliente'+this.os.cliente.id)
-     console.log(this.os.cliente)
-     console.log(this.os.cliente.id)
-     console.log(this.os.cliente.nome)
-     console.log(this.os)
   }
 
   updateOs() {
     this.osService.updateOs(this.os);
+    this.loadOs()
     window.alert("Alteração salva.")
     this.goBack();
   }
@@ -52,6 +48,7 @@ export class OsDetalheComponent implements OnInit {
   }
 
   loadClientes() {
+    this.loadOs();
     this.clientes = this.clienteService.getClientes()
   }
 

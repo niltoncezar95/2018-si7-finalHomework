@@ -22,7 +22,6 @@ export class OssRelatorioComponent implements OnInit {
 
   ngOnInit() {
     this.loadOss();
-    this.loadOs();
   }
 
   removeOs(os: Os){
@@ -34,6 +33,7 @@ export class OssRelatorioComponent implements OnInit {
 
   loadOss() {
     this.oss = this.osService.getOss()
+    this.loadOs();
   }
 
   loadOs() {
@@ -47,5 +47,7 @@ export class OssRelatorioComponent implements OnInit {
     }
     this.oss = this.ossTemp
   }
+
+
 }
 

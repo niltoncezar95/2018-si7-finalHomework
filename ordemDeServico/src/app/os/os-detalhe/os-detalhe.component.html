@@ -8,7 +8,7 @@
       <label for="exampleFormControlSelect1">Cliente</label>
       <select class="form-control" name="cliente" 
       required
-      [(ngModel)]="os.cliente.nome" (ngModelChange)="os.cliente.nome= $event">
+      [(ngModel)]="os.cliente">
         <option *ngFor="let cliente of clientes" [ngValue]="cliente">
           {{cliente.nome}}
         </option>
