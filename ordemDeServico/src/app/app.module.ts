@@ -15,6 +15,7 @@ import { ClientesRelatorioComponent } from './cliente/clientes-relatorio/cliente
 import { OssRelatorioComponent } from './os/oss-relatorio/oss-relatorio.component';
 import { ClienteDetalheComponent } from './cliente/cliente-detalhe/cliente-detalhe.component';
 import { OsDetalheComponent } from './os/os-detalhe/os-detalhe.component';
+import { NgxPhoneMaskBrModule } from 'ngx-phone-mask-br';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { OsDetalheComponent } from './os/os-detalhe/os-detalhe.component';
     BrowserModule,
     CommonModule,
     FormsModule,
-    RouteModule
+    RouteModule,
+    NgxPhoneMaskBrModule
   ],
   providers: [],
   bootstrap: [AppComponent]
