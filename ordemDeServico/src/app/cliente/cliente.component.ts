@@ -41,6 +41,8 @@ export class ClienteComponent implements OnInit {
       this.newCliente = new Cliente();
       this.setFocus();
     }
+    window.alert('Cadastro de cliente realizado com sucesso!!')
+  
   }
 
   setFocus(){

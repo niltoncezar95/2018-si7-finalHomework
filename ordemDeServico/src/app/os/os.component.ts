@@ -43,6 +43,7 @@ export class OsComponent implements OnInit {
 
       this.newOs = new Os();
     }
+    window.alert('Cadastro de OS realizado com sucesso!!')
   }
 
   loadClientes() {
