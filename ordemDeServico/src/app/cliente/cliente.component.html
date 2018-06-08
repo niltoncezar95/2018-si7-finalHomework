@@ -17,7 +17,7 @@
           <label for="inputEmail4">Email</label>
           <input type="Email" class="form-control" id="inputEmail4" placeholder="Ex: rodrigolfsi@gmail.com"
           [ngClass]="getFormControlClass(email.valid, email.pristine)" 
-              required
+              required ng-model="obj.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
               #email="ngModel"
               name="email" 
               [(ngModel)]="newCliente.email">
