@@ -23,7 +23,7 @@
           <tr *ngFor="let cliente of clientes">
             <td>{{ cliente.nome }}</td>
             <td>{{ cliente.email}}</td>
-            <td>{{ cliente.telefone | telefoneFilter : true}}</td>
+            <td>{{ cliente.telefone | telefoneFilter}}</td>
             <td>{{ cliente.endereco}}</td>
             <td>{{ cliente.estado | estado}}</td>
             <td>
