@@ -22,6 +22,7 @@ export class ClientesRelatorioComponent implements OnInit {
     this.clientes.splice(this.clientes.indexOf(cliente), 1);
     this.clienteService.removeCliente(cliente);
     this.loadClientes;
+    window.alert('Cliente deletado com sucesso!!')
   }
 
   loadClientes() {

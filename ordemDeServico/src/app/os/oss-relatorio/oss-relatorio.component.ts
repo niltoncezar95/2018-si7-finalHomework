@@ -28,7 +28,7 @@ export class OssRelatorioComponent implements OnInit {
     this.oss.splice(this.oss.indexOf(os), 1);
     this.osService.removeOs(os);
     this.loadOss;
-    console.log('passei aqui de novo')
+    window.alert('Os deletada com sucesso!!')
   }
 
   loadOss() {
