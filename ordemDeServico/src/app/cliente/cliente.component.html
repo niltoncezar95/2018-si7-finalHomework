@@ -1,50 +1,94 @@
-<form #clienteForm="ngForm">
+<form (ngSubmit)="saveCliente()" #clienteForm="ngForm" novalidate>
+  
   <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="inputName4">Nome</label>
-      <input type="Name" class="form-control" id="inputName4" #name placeholder="Ex: Rodrigo Luis de Faria" name="nome" 
-      required
-      [(ngModel)]="newCliente.nome">
+    <div class="form-group col-md-4" [ngClass]="getFormGroupClass(nome.invalid, nome.pristine)">
+          <label for="inputName4" class="form-control-label">Nome</label>
+          <input type="Name" placeholder="Ex: Rodrigo Luis de Faria" #name
+          [ngClass]="getFormControlClass(nome.valid, nome.pristine)"  
+              required
+              #nome="ngModel"       
+              name="nome"          
+              [(ngModel)]="newCliente.nome">
+        <div class="invalid-feedback" [hidden]="nome.valid || nome.pristine"> O campo nome é obrigatório!
+        </div>
     </div>
-    <div class="form-group col-md-4">
-      <label for="inputEmail4">Email</label>
-      <input type="Email" class="form-control" id="inputEmail4" placeholder="Ex: rodrigolfsi@gmail.com" name="email"
-      required
-      [(ngModel)]="newCliente.email">
+
+    <div class="form-group col-md-4" [ngClass]="getFormGroupClass(email.valid, email.pristine)">
+          <label for="inputEmail4">Email</label>
+          <input type="Email" class="form-control" id="inputEmail4" placeholder="Ex: rodrigolfsi@gmail.com"
+          [ngClass]="getFormControlClass(email.valid, email.pristine)" 
+              required
+              #email="ngModel"
+              name="email" 
+              [(ngModel)]="newCliente.email">
+        <div class="invalid-feedback" [hidden]="email.valid || email.pristine"> O campo e-mail é obrigatório!
+        </div>
     </div>
-    <div class="form-group col-md-4">
-      <label for="inputPhone4">Telefone</label>
-      <input ngxPhoneMaskBr type="text" class="form-control" id="inputPhone4" placeholder="Ex: 12345678" name="telefone" 
-      required
-      [(ngModel)]="newCliente.telefone">
+
+    <div class="form-group col-md-4" [ngClass]="getFormGroupClass(telefone.valid, telefone.pristine)">
+          <label for="inputPhone4">Telefone</label>
+          <input ngxPhoneMaskBr ng-show=' ' type="text" class="form-control" id="inputPhone4" placeholder="Ex: (00) 1234-5678 ou (00) 12345-6789"
+          [ngClass]="getFormControlClass(telefone.valid, telefone.pristine)"
+              required
+              #telefone="ngModel"
+              name="telefone" 
+              [(ngModel)]="newCliente.telefone">
+        <div class="invalid-feedback" [hidden]="telefone.valid || telefone.pristine"> O campo telefone é obrigatório!
+        </div>
+      </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4" [ngClass]="getFormGroupClass(endereco.valid, endereco.pristine)">
+          <label for="inputAddress">Endereço</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="Av. Prefeito Tuany Toledo, 470"
+          [ngClass]="getFormControlClass(endereco.valid, endereco.pristine)"
+              required
+              #endereco="ngModel" 
+              name="endereco"
+              [(ngModel)]="newCliente.endereco">
+        <div class="invalid-feedback" [hidden]="endereco.valid || endereco.pristine"> O campo endereço é obrigatório!
+        </div>
+    </div>
+
+    <div class="form-group col-md-4" [ngClass]="getFormGroupClass(bairro.valid, bairro.pristine)">
+          <label for="inputNeighborhood">Bairro</label>
+          <input type="text" class="form-control" id="inputNeighborhood" placeholder="Fátima"
+          [ngClass]="getFormControlClass(bairro.valid, bairro.pristine)"
+              required 
+              #bairro="ngModel"
+              name="bairro" 
+              [(ngModel)]="newCliente.bairro">
+      <div class="invalid-feedback" [hidden]="bairro.valid || bairro.pristine"> O campo bairro é obrigatório!
+      </div>
+    </div>
+
+    <div class="form-group col-md-2" [ngClass]="getFormGroupClass(cidade.valid, cidade.pristine)">
+          <label for="inputCity">Cidade</label>
+          <input type="text" class="form-control" id="inputCity" placeholder="Ex: Pouso Alegre"
+          [ngClass]="getFormControlClass(cidade.valid, cidade.pristine)"
+              required 
+              #cidade="ngModel"
+              name="cidade"
+              [(ngModel)]="newCliente.cidade">
+      <div class="invalid-feedback" [hidden]="cidade.valid || cidade.pristine"> O campo cidade é obrigatório!
+      </div>
+    </div>
+
+    <div class="form-group col-md-2" [ngClass]="getFormGroupClass(estado.valid, estado.pristine)">
+          <label for="inputState">Estado</label>
+          <input type="text" class="form-control" minlength="2" maxlength="2" id="inputState" placeholder="Ex: MG"
+          [ngClass]="getFormControlClass(estado.valid, estado.pristine)"
+              required 
+              #estado="ngModel" 
+              name="estado" 
+              [(ngModel)]="newCliente.estado">
+      <div class="invalid-feedback" [hidden]="estado.valid || estado.pristine"> O campo estado é obrigatório!
+      </div>
     </div>
   </div>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="inputAddress">Endereço</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="Av. Prefeito Tuany Toledo, 470" name="endereco" 
-      required
-      [(ngModel)]="newCliente.endereco">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputAddress2">Bairro</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Fátima" name="bairro" 
-      required
-      [(ngModel)]="newCliente.bairro">
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputCity">Cidade</label>
-      <input type="text" class="form-control" id="inputCity" placeholder="Ex: Pouso Alegre" name="cidade" 
-      required
-      [(ngModel)]="newCliente.cidade">
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputState">Estado</label>
-      <input type="text" class="form-control" id="inputState" placeholder="Ex: MG" name="estado" 
-      required
-      [(ngModel)]="newCliente.estado">
-    </div>
-  </div>
-  <button type="submit" class="btn btn-success" (click)="saveCliente()" [disabled]="!clienteForm.form.valid">Salvar</button>
-  <button type="button" class="btn btn-secondary espaco" (click)="goBack()">Voltar</button>
+
+      <button type="submit" class="btn btn-success" [disabled]="!clienteForm.form.valid">Salvar</button>
+      <button type="button" class="btn btn-secondary espaco" (click)="goBack()">Voltar</button>
+
 </form>

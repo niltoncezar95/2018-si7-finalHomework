@@ -10,8 +10,8 @@ import { ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./cliente.component.css']
 })
 export class ClienteComponent implements OnInit {
-  
-  @ViewChild('name') inputElement : ElementRef;
+
+  @ViewChild('name') inputElement: ElementRef;
 
   newCliente: Cliente;
 
@@ -42,14 +42,31 @@ export class ClienteComponent implements OnInit {
       this.setFocus();
     }
     window.alert('Cadastro de cliente realizado com sucesso!!')
-  
+    this.goBack();
+
   }
 
-  setFocus(){
-    this.inputElement.nativeElement.focus();
-  }
+   setFocus() {
+     this.inputElement.nativeElement.focus();
+   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  getFormGroupClass(isValid: boolean, isPristine: boolean): {} {
+    return {
+      'form-group': true,
+      'is-invalid': !isValid && !isPristine,
+      'is-valid': isValid && !isPristine
+    }
+  }
+
+  getFormControlClass(isValid: boolean, isPristine: boolean): {} {
+    return {
+      'form-control': true,
+      'is-invalid': !isValid && !isPristine,
+      'is-valid': isValid && !isPristine
+    }
   }
 }
