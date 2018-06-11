@@ -1,8 +1,8 @@
-# 2018-si7-finalHomework
+Após efetuar o download dos arquivos, execute os comandos abaixo:
 
-#npm install -g @angular/cli
+1. ```npm install```
+2. ```ng serve```
 
-#ng new ordemDeServicos
+Logo após, acesse [localhost:4200](http://localhost:4200).
 
-#ng generate component cliente
-#ng generate component os
+O projeto pode ser acessado diretamento clicando [aqui](http://sigli.tk.s3-website-sa-east-1.amazonaws.com/).
